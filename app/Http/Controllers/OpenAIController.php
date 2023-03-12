@@ -16,13 +16,13 @@ class OpenAIController extends Controller
         $response = $client->request('POST', 'https://api.openai.com/v1/completions', [
             'headers' => [
                 'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' .env('OPENAI_API_KEY'),
+                'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
             ],
             'json' => [
-                'model' => 'text-davinci-001',
-                'prompt' => 'Write me a good tenant bio caption in my tenant resume to attract landlord, starts with i am ',
-                'temperature' => 0.5,
-                'max_tokens' => 100,
+                'model' => 'text-davinci-003',
+                'prompt' => $text,
+                'temperature' => 1.0,
+                'max_tokens' => 500,
                 'top_p' => 1,
                 'frequency_penalty' => 0,
                 'presence_penalty' => 0,
